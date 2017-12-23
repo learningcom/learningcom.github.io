@@ -11,9 +11,8 @@
 
 <body>
 
-    <pre><code></code></pre>
+    <pre><code class="language-json"></code></pre>
     <form id="ltiForm"></form>
-
     <button type="submit" form="ltiForm">POST to LTI Tool Provider!</button>
 
     <script>
@@ -38,7 +37,6 @@
         var signature = oauth.hmacsign(method, action, params, 'secret');
         params.oauth_signature = signature;
 
-
         var form = document.querySelector("#ltiForm");
         form.action = action;
         form.method = method;
@@ -53,6 +51,9 @@
         var output = document.querySelector("code");
         output.textContent = JSON.stringify(params, null, 2);
         console.log(form);
+
+        var meta = document.querySelector("body > script");
+        console.log(meta);
     </script>
 
 </body>
